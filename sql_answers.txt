@@ -1,0 +1,139 @@
+SQL Answers
+
+Question 1:
+How many books has each member checked out?
+
+SQL Query:
+SELECT
+    members.member_id,
+    members.first_name,
+    members.last_name,
+    COUNT(checkouts.checkout_id) AS checkout_count
+FROM members
+LEFT JOIN checkouts
+    ON members.member_id = checkouts.member_id
+GROUP BY
+    members.member_id,
+    members.first_name,
+    members.last_name
+ORDER BY checkout_count DESC;
+
+Output:
+[The SQL output is the table showing each member and their checkout count.]
+
+Answer:
+The member with the highest number of checkouts is Aya Wahba with 25 checkouts.
+
+
+Question 2:
+Which authors have names starting with M?
+
+SQL Query:
+SELECT DISTINCT author
+FROM books
+WHERE author LIKE 'M%';
+
+Output:
+author
+Mahmoud Rafei
+Mona Kholoussy
+
+Answer:
+The authors are Mahmoud Rafei and Mona Kholoussy.
+Pattern: Authors whose names start with the letter M.
+
+
+Question 3:
+What are the top 5 most checked-out books?
+
+SQL Query:
+SELECT
+    books.title,
+    COUNT(checkouts.checkout_id) AS checkout_count
+FROM books
+JOIN checkouts
+    ON books.book_id = checkouts.book_id
+GROUP BY books.book_id, books.title
+ORDER BY checkout_count DESC
+LIMIT 5;
+
+Output:
+title checkout_count
+The Silver Kite 57
+Fossils and Fireflies 55
+Circuits for Beginners 46
+Kites Over Cairo 38
+Storms and Sailboats 25
+
+Answer:
+The five most checked-out books are The Silver Kite, Fossils and Fireflies, Circuits for Beginners, Kites Over Cairo, and Storms and Sailboats.
+
+
+Question 4:
+Who are the top 10 members by number of checkouts?
+
+SQL Query:
+SELECT
+    members.first_name,
+    members.last_name,
+    COUNT(checkouts.checkout_id) AS checkout_count
+FROM members
+JOIN checkouts
+    ON members.member_id = checkouts.member_id
+GROUP BY members.member_id, members.first_name, members.last_name
+ORDER BY checkout_count DESC
+LIMIT 10;
+
+Output:
+first_name last_name checkout_count
+Aya Wahba 25
+Sherif Saleh 21
+Ziad Saleh 19
+Nour Nabil 18
+Mostafa Fouad 18
+Ahmed Shafik 17
+Youssef Hegazy 17
+Adam Fahmy 17
+Reem Osman 16
+Sara Rashad 16
+
+Answer:
+The top member is Aya Wahba with 25 checkouts, followed by Sherif Saleh with 21 and Ziad Saleh with 19.
+
+
+Question 5:
+What are the 10 members from Maadi?
+
+SQL Query:
+SELECT
+    member_id,
+    first_name,
+    last_name,
+    grade,
+    neighborhood,
+    membership_status,
+    join_date
+FROM members
+WHERE LOWER(TRIM(neighborhood)) = 'maadi'
+ORDER BY member_id
+LIMIT 10 OFFSET 10;
+
+Output:
+member_id first_name last_name grade neighborhood membership_status join_date
+1011 Menna Halim 8.0 Maadi Active 2024-04-22
+1012 Ali Hegazy 7.0 Maadi Active 2025-12-08
+1013 Ziad Fouad NaN Maadi Active 2025-06-27
+1014 Habiba Nabil 6.0 Maadi Active 2024-07-09
+1015 Hamza Sabry 7.0 Maadi Inactive 2025-08-13
+1016 Dina Rashad 8.0 Maadi Active 2023-04-24
+1017 Adam Badr 9.0 Maadi Active 2025-07-12
+1018 Ahmed Shafik 9.0 Maadi Active 2023-01-28
+1019 Mostafa Wahba 6.0 Maadi Inactive 2024-07-20
+1020 Rana Fouad 6.0 Maadi Active 2025-12-04
+
+Answer:
+The query returns 10 members from Maadi, starting from member ID 1011 through member ID 1020.
+
+
+API vs Scraping:
+API is usually more reliable and structured for getting data. Scraping is useful when no API is available, but it depends on the webpage structure and may break if the page changes. In this project, scraping was suitable for extracting checkout records from the HTML page.

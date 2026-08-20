@@ -1,0 +1,13 @@
+# Data Integrity Report
+
+The data was checked for missing values, duplicates, inconsistent values, and orphan records.
+
+* Missing checkout IDs were filled with new unique IDs.
+* Missing member information was restored from the original members table when available.
+* Membership status and neighborhood names were standardized.
+* Missing grades were filled using the median grade.
+* Join dates and return dates were converted to datetime format.
+* Missing publication years were restored from the original book catalog when available.
+* No duplicate records were found.
+* No orphan book records were found.
+* Five orphan member records were identified and preserved.

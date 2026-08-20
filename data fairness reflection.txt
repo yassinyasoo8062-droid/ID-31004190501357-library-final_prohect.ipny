@@ -1,0 +1,13 @@
+# Data Fairness Reflection
+
+### 1. What would you group and count to compare neighborhoods against each other?
+
+I would group the data by neighborhood and count the number of checkouts and members in each neighborhood. I would then calculate checkouts per member to make the comparison fair.
+
+### 2. What would "fair representation" look like, and how would you know if a neighborhood was falling short?
+
+Fair representation would mean that neighborhoods have similar checkout rates per member. Maadi has the lowest rate at 5.75 checkouts per member, so it may be underrepresented compared with the other neighborhoods.
+
+### 3. If you find a gap, what's a plausible reason, and one realistic change the library could make next summer?
+
+A possible reason could be lower awareness or access to library services in that neighborhood. The library could organize a summer reading program or outreach event in Maadi to encourage more participation.
