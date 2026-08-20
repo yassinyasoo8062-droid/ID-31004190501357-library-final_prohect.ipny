@@ -1,9 +1,9 @@
 import pandas as pd
 import sqlite3
 
-# =========================
+
 # 1. Read SQLite database
-# =========================
+
 
 conn = sqlite3.connect("level3_final_project_library.db")
 
@@ -12,27 +12,24 @@ books = pd.read_sql_query("SELECT * FROM books", conn)
 checkouts = pd.read_sql_query("SELECT * FROM checkouts", conn)
 
 
-# =========================
+
 # 2. Read JSON file
-# =========================
+
 
 book_catalog = pd.read_json(
     "level3_final_project_book_catalog.json"
 )
 
 
-# =========================
 # 3. Read HTML file
-# =========================
 
 event_signup = pd.read_html(
     "level3_final_project_event_signup.html"
 )[0]
 
 
-# =========================================================
 # TASK 1 - SQL
-# =========================================================
+
 
 # Question 1
 
@@ -131,9 +128,8 @@ result5 = pd.read_sql_query(query5, conn)
 result5
 
 
-# =========================================================
 # API vs SCRAPING
-# =========================================================
+
 
 """
 API is usually more reliable and structured for getting data.
@@ -144,10 +140,7 @@ records from the HTML page.
 """
 
 
-# =========================================================
 # TASK 1 - DATA INTEGRATION / MERGE
-# =========================================================
-
 # 1. Merge checkouts with members
 
 merged = pd.merge(
@@ -465,3 +458,8 @@ neighborhood_fairness = (
 
 print("\nNeighborhood Fairness:")
 print(neighborhood_fairness)
+
+# Project tasks completed:
+# Task 1 - SQL queries and data integration
+# Task 2 - Data cleaning and integrity checks
+# Task 3 - Data fairness analysis
