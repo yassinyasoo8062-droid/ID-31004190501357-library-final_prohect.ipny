@@ -463,3 +463,4 @@ print(neighborhood_fairness)
 # Task 1 - SQL queries and data integration
 # Task 2 - Data cleaning and integrity checks
 # Task 3 - Data fairness analysis
+#Data fairness analysis was completed by comparing checkout counts and the number of members in each neighborhood. Checkout rates per member were calculated to identify possible differences in representation.
