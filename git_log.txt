@@ -1,3 +1,4 @@
+79b6187 Add git log
 4a7939f Add data fairness analysis
 1e1247f Complete data integration and cleaning
 2d479dc Initial project setup
